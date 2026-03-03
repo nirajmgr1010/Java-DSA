@@ -4,11 +4,11 @@ Qs.Print Numbers from 1 to 5
 class PrintNumbers{
   
     void Print(int n){
-       if(n>5){
+       if(n == 6){
         return;
        }
        System.out.println(n);
-       Print(n+1);
+       Print(n+1); 
        
     }
 }
