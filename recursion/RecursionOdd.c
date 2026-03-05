@@ -22,13 +22,15 @@ void PrintOddRec(int count , int n , int num){
 
     if(num%2!=0){
         printf("%d \t",num);
-        PrintOddRec(count+1,n,num+1);
+        PrintOddRec(count+1,n,num-1);
     }
     else{
-        PrintOddRec(count,n,num+1);
+        PrintOddRec(count,n,num-1);
     }
 }
+
+
 int main(){
   PrintOdd(5);
-  PrintOddRec(0,5,1);
+  PrintOddRec(0,5,100);
 }
