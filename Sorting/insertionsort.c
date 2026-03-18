@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+//Insertion sort
 void insertion1(int a[], int n){
     int i,temp,j;
     for(i=0; i<n; i++){
