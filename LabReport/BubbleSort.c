@@ -25,5 +25,6 @@ void main(){
     int n = 6;
     printArray(A,n);
     bubbleSort(A,n);
+    printf("Sorted Array:\n");
     printArray(A,n);
 }

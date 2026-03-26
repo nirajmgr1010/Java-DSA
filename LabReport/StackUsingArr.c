@@ -1,58 +1,59 @@
 #include<stdio.h>
 #define Maxsize 10
-int stack[Maxsize],top=-1;
+
+int stack[Maxsize], top = -1;
+
 void push(){
     int val;
-    if(top==Maxsize-1){ //-1 == 9
-        printf("Stack is overflow");
+    if(top == Maxsize - 1){
+        printf("Stack Overflow\n");
     }
     else{
-        printf("\nEnter the value to be inserted: ");
-        scanf("%d",&val);
+        printf("Enter the value to be inserted: ");
+        scanf("%d", &val);
         top++;
-        stack[top]=val;
+        stack[top] = val;
     }
 }
+
 void pop(){
-    if(top==-1){
-        printf("Stack is empty");
+    if(top == -1){
+        printf("Stack Underflow\n");
     }
     else{
-        printf("\nBefore pop operation:%d",stack[top]);
+        printf("Deleted element: %d\n", stack[top]);
         top--;
-        printf("\nAfter pop operation:%d",stack[top]);
     }
 }
+
 void display(){
-     for(int i=top; i>=0; i--){
-        printf(" Stack data:%d",stack[i]);
-     }
+    if(top == -1){
+        printf("Stack is empty\n");
+    }
+    else{
+        printf("Stack elements:\n");
+        for(int i = top; i >= 0; i--){
+            printf("%d ", stack[i]);
+        }
+        printf("\n");
+    }
 }
+
 int main(){
     int option;
+
     while(1){
         printf("\nStack Options Menu");
-        printf("\n1.push\n2. pop \n.3. display\n4.Exit");
-        
-        scanf("%d",&option);
-        switch (option)
-        {
-        case 1:
-        push();
-        break;
-        case 2:
-        pop();
-        break;
-        case 3:
-        display();
-        break;
-        case 4:
-        return 0;
-        break;
-        default:
-        printf("Invalid option");
-        break;
+        printf("\n1. Push\n2. Pop\n3. Display\n4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &option);
+
+        switch(option){
+            case 1: push(); break;
+            case 2: pop(); break;
+            case 3: display(); break;
+            case 4: return 0;
+            default: printf("Invalid option\n");
         }
     }
-    return 0;
 }
