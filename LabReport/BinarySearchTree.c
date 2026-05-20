@@ -35,14 +35,6 @@ int main(){
     struct Node *p3 = createNode(1);
     struct Node *p4 = createNode(4);
 
-    //Finally the tree looks like this:
-    /*
-             5
-            / \
-           3   6
-          / \ 
-         1   4
-    */
 
     //Linking the root node with left and right children
     p-> left = p1;
@@ -50,12 +42,7 @@ int main(){
     p1->left=p3;
     p1->right=p4;
 
-    // preOrder(p);
-    // printf("\n");
-    // postOrder(p);
-    // printf("\n");
     inOrder(p);
-    printf("\n");
-    printf("%d ",isBST(p));
+
 
 }

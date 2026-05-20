@@ -66,7 +66,7 @@ Scanner sc = new Scanner(System.in);
   }
 }
 // Main class
-public class Stack {
+public class Stack2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Operation o = new Operation();
