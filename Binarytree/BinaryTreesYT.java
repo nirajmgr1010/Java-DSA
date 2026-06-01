@@ -123,6 +123,7 @@ public class BinaryTreesYT{
          System.out.println("\n");
         System.out.println(sumOfNodes(root));
 
-
+         System.out.println("\n");
+         System.out.println(diameter(root));
         }
 }
