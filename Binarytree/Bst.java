@@ -35,7 +35,7 @@ public class Bst {
     if(root.data > key){
         return Search(root.left, key);
     }
-    else if(root.data == key){
+    else if(root.data   == key){
         return true;
     }
     else{
