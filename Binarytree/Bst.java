@@ -78,6 +78,25 @@ public class Bst {
    }
    return root;
   }
+
+ //Print in range 
+    public static void printInRange(Node root, int X,int Y){
+        if(root == null){
+            return;
+        }
+        if(root.data >= X && root.data <= Y){
+            printInRange(root.left, X, Y);
+            System.out.println(root.data+" ");
+            printInRange(root.right, X, Y);
+        }
+        else if(root.data >= Y){
+            printInRange(root.left, X, Y);
+        }
+        else{
+            printInRange(root.right, X, Y);
+        }
+    }
+
     public static void inOrder(Node root){
         if(root == null){
             return;
@@ -97,11 +116,13 @@ public class Bst {
         // inOrder(root);
         // System.out.println();
 
-        delete(root, 4); //which has no child
-        inOrder(root);
-        delete(root, 10); //which has single child
-        inOrder(root);
-        delete(root, 5); // which has two children
-        inOrder(root);
+        // delete(root, 4); //which has no child
+        // inOrder(root);
+        // delete(root, 10); //which has single child
+        // inOrder(root);
+        // delete(root, 5); // which has two children
+        // inOrder(root);
+
+        printInRange(root, 6, 10);
      }
 }
