@@ -1,3 +1,4 @@
+import java.util.*;
 public class Bst {
 
     static class Node{
@@ -96,6 +97,30 @@ public class Bst {
             printInRange(root.right, X, Y);
         }
     }
+
+ //Road to leaf paths
+public static void printPath(ArrayList<Integer> path){
+    for(int i=0; i<path.size(); i++){
+        System.out.println(path.get(i)+"->");
+    }
+    System.out.println();
+}
+
+ public static void printRoot2Leaf(Node root, ArrayList<Integer> path){
+    if(root == null){
+        return;
+    }
+    path.add(root.data);
+    //leaf
+    if(root.left == null && root.right == null){
+     printPath(path);
+    }else{ //non-leaf
+  printRoot2Leaf(root.left, path);
+     printRoot2Leaf(root.right, path);
+    }
+     path.remove(path.size()-1); //delete last node
+    }
+
 
     public static void inOrder(Node root){
         if(root == null){
