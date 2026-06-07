@@ -15,9 +15,6 @@ public class ReverseArr {
         for(int i=0; i<arr.length; i++){
             System.out.println(arr[i]);
         }
-        
-        
-
     }
     public static void main(String[] args) {
         int arr[] = {10,4,3,5,8,6};

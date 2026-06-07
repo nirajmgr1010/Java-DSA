@@ -98,7 +98,7 @@ public class Bst {
         }
     }
 
- //Road to leaf paths
+ //Root to leaf paths
 public static void printPath(ArrayList<Integer> path){
     for(int i=0; i<path.size(); i++){
         System.out.println(path.get(i)+"->");
