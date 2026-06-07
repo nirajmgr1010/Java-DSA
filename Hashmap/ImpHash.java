@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class ImpHash {
@@ -73,10 +74,67 @@ public class ImpHash {
 
     double lambda = (double)n/N;
     if(lambda > 2.0){
-        //rehashing
-       
+      rehash(); 
     }
             }
+
+
+    //get() 
+    public v get(k key){
+        int bi = hashFunction(key);
+        int di = searchInLL(key, bi); // data index
+
+        if(di == -1){  //key doesn't exist
+        return null;
+        }
+        else{ //key exist
+        Node node = bucket[bi].get(di);
+        return node.value;
+        }
+    }
+
+    //contains
+    public boolean containsKey(k key){
+          int bi = hashFunction(key);
+          int di = searchInLL(key, bi); // data index
+    
+      if(di == -1){  //key doesn't exist
+        return false;
+        }
+      else{ //key exist
+       return true;
+    }
+    }
+
+    public v remove(k key){
+        int bi = hashFunction(key);
+        int di = searchInLL(key, bi); // data index
+    
+      if(di == -1){  //key doesn't exist
+        return null;
+        }
+      else{ //key exist
+        Node node = bucket[bi].remove(di);
+       return node.value;
+    }
+    }
+
+    public ArrayList<k> keySet(){
+        ArrayList<k> keys = new ArrayList<>();
+
+        for(int i=0; i<bucket.length; i++){ //bi
+            LinkedList<Node> ll = bucket[i];
+            for(int j=0; j<ll.size(); j++){ //di
+                Node node = ll.get(j);
+                keys.add(node.key);
+            }
+        }
+        return keys;
+    }
+
+    public boolean isEmpty(){
+        return n == 0;
+    }
   }
  
     public static void main(String[] args) {
