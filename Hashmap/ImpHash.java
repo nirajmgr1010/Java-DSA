@@ -27,8 +27,8 @@ public class ImpHash {
     }
 
   private int hashFunction(k key){ // 0 to N-1
-    int bi = key.hashCode();
-   return Math.abs(bi) % N;
+    int bi = key.hashCode(); // 2
+   return Math.abs(bi) % N; //
   }
   private int searchInLL(k key, int bi){
 
@@ -42,6 +42,7 @@ public class ImpHash {
     return -1;
   }
 
+  @SuppressWarnings("unchecked")
   private void rehash(){
     LinkedList<Node> oldBucket[] = bucket;
     bucket = new LinkedList[N*2];
@@ -73,7 +74,7 @@ public class ImpHash {
     }
 
     double lambda = (double)n/N;
-    if(lambda > 2.0){
+    if(lambda >= 2.0){
       rehash(); 
     }
             }
@@ -115,6 +116,7 @@ public class ImpHash {
         }
       else{ //key exist
         Node node = bucket[bi].remove(di);
+        n--;
        return node.value;
     }
     }
@@ -142,5 +144,14 @@ public class ImpHash {
     map.put("India", 190);
     map.put("China", 200);
     map.put("US", 50);
+
+
+    ArrayList<String> keys = map.keySet();
+    for(int i=0; i<keys.size(); i++){
+        System.out.println(keys.get(i)+" "+map.get(keys.get(i)));
+    }
+
+    map.remove("India");
+    System.out.println(map.get("India"));
  }   
 }
